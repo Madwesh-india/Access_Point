@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,13 +24,13 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
         createWebSocketClient();
-        Button b = findViewById(R.id.button);
-        b.setOnClickListener(view -> {
-            webSocketClient.close();
-            TextView textView = findViewById(R.id.txt);
-            String t = "closed";
-            textView.setText(t);
-        });
+//        Button b = findViewById(R.id.button);
+//        b.setOnClickListener(view -> {
+//            webSocketClient.close();
+//            TextView textView = findViewById(R.id.txt);
+//            String t = "closed";
+//            textView.setText(t);
+//        });
     }
 
 
@@ -62,11 +63,42 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTextReceived(String s) {
                 Log.i("WebSocket", "Message received");
-                final String message = s;
+                JSONObject jo;
+                JSONObject dev;
+                String type = null;
+                try {
+                    jo = new JSONObject(s);
+                    String conection = jo.getString("conection");
+                    String devices = jo.getString("devices");
+                    dev = new JSONObject(devices);
+                    switch (conection) {
+                        case "true": {
+                            type = "You are Connected";
+                            break;
+                        }
+                        case "newConnection": {
+                            type = "New device Connected";
+                            break;
+                        }
+                        case "alreadyConected": {
+                            type = "You are already Connected";
+                            break;
+                        }
+                        case "lost":{
+                            type = "A device lost Connection";
+                            break;
+                        }
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                String finalType = type;
                 runOnUiThread(() -> {
                     try {
                         TextView textView = findViewById(R.id.txt);
-                        textView.setText(message);
+                        textView.setText(s);
+                        Toast toast = Toast.makeText(getApplicationContext(), finalType, Toast.LENGTH_SHORT);
+                        toast.show();
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
