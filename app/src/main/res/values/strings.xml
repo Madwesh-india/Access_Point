@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Access_Point</string>
+    <string name="mobile">Mobile</string>
+    <string name="esp">ESP</string>
+    <string name="pc">PC</string>
+    <string name="pc_on">PC ON</string>
+    <string name="teamviewer">TeamViewer</string>
+    <string name="jupyternotebook">JupyterNotebook</string>
+    <string name="pc_off">PC_OFF</string>
 </resources>

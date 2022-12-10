@@ -5,10 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+
+
     <TextView
         android:id="@+id/txt"
-        android:layout_width="342dp"
-        android:layout_height="30dp"
+        android:layout_width="405dp"
+        android:layout_height="71dp"
         android:text="Hello World!"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -16,17 +18,98 @@
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.083" />
+        app:layout_constraintVertical_bias="0.181" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
-        android:text="Button"
+    <LinearLayout
+        android:layout_width="358dp"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:rotation="0"
+        android:rotationX="0"
+        android:rotationY="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.063">
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/mobile"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@android:color/holo_red_dark"
+            android:clickable="false"
+            android:inputType="none"
+            android:text="@string/mobile"
+            android:textColor="#B2EBF2" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/esp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/holo_red_dark"
+            android:clickable="false"
+            android:inputType="none"
+            android:text="@string/esp"
+            android:textColor="#B2EBF2" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/pc"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/holo_red_dark"
+            android:clickable="false"
+            android:inputType="none"
+            android:text="@string/pc"
+            android:textColor="#B2EBF2" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/pc_on"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/pc_on"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt"/>
+
+    <Button
+        android:id="@+id/teamviewer"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/teamviewer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pc_on"/>
+
+    <Button
+        android:id="@+id/jupyternotebook"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/jupyternotebook"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/teamviewer"/>
+
+    <Button
+        android:id="@+id/pc_off"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/pc_off"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/jupyternotebook"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
