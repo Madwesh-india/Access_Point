@@ -7,4 +7,5 @@
     <string name="teamviewer">TeamViewer</string>
     <string name="jupyternotebook">JupyterNotebook</string>
     <string name="pc_off">PC_OFF</string>
+    <string name="change_ip">change ip</string>
 </resources>

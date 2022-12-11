@@ -4,8 +4,11 @@ import android.annotation.SuppressLint;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Editable;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
     Button pc_off;
     Button teamviewer;
     Button jupyternotebook;
+    EditText ip;
+    Editable ip_string;
+    Button ipChange;
 
     @SuppressLint("SourceLockedOrientationActivity")
     @Override
@@ -36,15 +42,25 @@ public class MainActivity extends AppCompatActivity {
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_main);
 
-        if(webSocketClient == null){
-            Runnable runnable = this::createWebSocketClient;
-            Thread thread = new Thread(runnable);
-            thread.start();
+        pc_on = findViewById(R.id.pc_on);
+        pc_off = findViewById(R.id.pc_off);
+        teamviewer = findViewById(R.id.teamviewer);
+        jupyternotebook = findViewById(R.id.jupyternotebook);
+        ipChange = findViewById(R.id.ipChange);
+        ip = findViewById(R.id.ip);
 
-            pc_on = findViewById(R.id.pc_on);
-            pc_off = findViewById(R.id.pc_off);
-            teamviewer = findViewById(R.id.teamviewer);
-            jupyternotebook = findViewById(R.id.jupyternotebook);
+        ip_string = ip.getText();
+
+
+        if(webSocketClient == null){
+            ipChange.setOnClickListener(view ->{
+                Runnable runnable = this::createWebSocketClient;
+                Thread thread = new Thread(runnable);
+                thread.start();
+                
+            });
+
+
 
             JSONObject jo = new JSONObject();
             try {
@@ -101,11 +117,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-    private void createWebSocketClient() {
+    public void createWebSocketClient() {
         URI uri;
         try {
-            uri = new URI("ws://192.168.0.108:3000/");
+            uri = new URI(ip_string.toString());
         }
         catch (URISyntaxException e) {
             e.printStackTrace();

@@ -15,14 +15,14 @@
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.181" />
+        app:layout_constraintVertical_bias="0.156" />
 
     <LinearLayout
-        android:layout_width="358dp"
-        android:layout_height="56dp"
+        android:id="@+id/linearLayout"
+        android:layout_width="356dp"
+        android:layout_height="60dp"
         android:orientation="horizontal"
         android:rotation="0"
         android:rotationX="0"
@@ -72,44 +72,71 @@
         android:id="@+id/pc_on"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="8dp"
         android:text="@string/pc_on"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt"/>
+        app:layout_constraintTop_toBottomOf="@+id/txt" />
 
     <Button
         android:id="@+id/teamviewer"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="8dp"
         android:text="@string/teamviewer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pc_on"/>
+        app:layout_constraintTop_toBottomOf="@+id/pc_on" />
 
     <Button
         android:id="@+id/jupyternotebook"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="12dp"
         android:text="@string/jupyternotebook"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/teamviewer"/>
+        app:layout_constraintTop_toBottomOf="@+id/teamviewer" />
 
     <Button
         android:id="@+id/pc_off"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="8dp"
         android:text="@string/pc_off"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/jupyternotebook" />
+
+    <EditText
+        android:id="@+id/ip"
+        android:layout_width="244dp"
+        android:layout_height="96dp"
+        android:ems="10"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:text="ws://192.168.0.108:3000/"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ipChange"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/jupyternotebook"/>
+        app:layout_constraintTop_toBottomOf="@+id/pc_off"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/ipChange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="24dp"
+        android:text="@string/change_ip"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pc_off"
+        app:layout_constraintVertical_bias="0.13" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
